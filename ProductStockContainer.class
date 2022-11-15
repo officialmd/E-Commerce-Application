@@ -1,0 +1,16 @@
+public abstract class ProductStockContainer {
+    public ProductStockContainer() {
+    }
+
+    public abstract int getProductQuantity(Product var1);
+
+    public abstract void addProductQuantity(Product var1, int var2);
+
+    public abstract int removeProductQuantity(Product var1, int var2);
+
+    public abstract Product getProductInfo(Product var1);
+
+    public abstract Product getProductById(int var1);
+
+    public abstract int getNumOfProducts();
+}
