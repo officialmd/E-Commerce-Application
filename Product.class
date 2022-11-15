@@ -1,0 +1,46 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+public class Product {
+    private String name;
+    private int productId;
+    private double price;
+
+    public Product() {
+        this.name = "";
+        this.productId = 0;
+        this.price = 0.0D;
+    }
+
+    public Product(String name, int productId, double price) {
+        this.name = name;
+        this.productId = productId;
+        this.price = price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public int getProductId() {
+        return this.productId;
+    }
+}
