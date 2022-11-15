@@ -1,0 +1,79 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ShoppingCart extends ProductStockContainer {
+    private ArrayList<Product> products = new ArrayList();
+    private ArrayList<Integer> quantities = new ArrayList();
+
+    public ShoppingCart() {
+    }
+
+    public void addProductQuantity(Product product, int quantity) {
+        if (product != null && quantity > 0) {
+            this.products.add(product);
+            this.quantities.add(quantity);
+        }
+
+    }
+
+    public int removeProductQuantity(Product product, int quantity) {
+        int flag = 0;
+        if (product != null && quantity > 0) {
+            for(int i = 0; i < this.products.size(); ++i) {
+                if (((Product)this.products.get(i)).getProductId() == product.getProductId()) {
+                    this.quantities.set(i, (Integer)this.quantities.get(i) - quantity);
+                    flag = 1;
+                }
+            }
+        }
+
+        return flag;
+    }
+
+    public Product getProductInfo(Product product) {
+        if (product != null) {
+            for(int i = 0; i < this.products.size(); ++i) {
+                if (((Product)this.products.get(i)).getProductId() == product.getProductId()) {
+                    return (Product)this.products.get(i);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public int getProductQuantity(Product product) {
+        if (product != null) {
+            for(int i = 0; i < this.products.size(); ++i) {
+                if (((Product)this.products.get(i)).getProductId() == product.getProductId()) {
+                    return (Integer)this.quantities.get(i);
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    public int getNumOfProducts() {
+        return this.products.size();
+    }
+
+    public ArrayList<Product> getCartItems() {
+        return this.products;
+    }
+
+    public Product getProductById(int productId) {
+        if (productId > 0) {
+            Iterator var2 = this.products.iterator();
+
+            while(var2.hasNext()) {
+                Product product = (Product)var2.next();
+                if (product.getProductId() == productId) {
+                    return product;
+                }
+            }
+        }
+
+        return null;
+    }
+}
